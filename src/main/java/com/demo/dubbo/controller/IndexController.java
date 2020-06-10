@@ -1,6 +1,8 @@
 package com.demo.dubbo.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.demo.dubbo.service.TestService;
+import com.demo.dubbo.service.impl.AnnotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +20,13 @@ public class IndexController {
     @RequestMapping("/test")
     public String test(String name){
        return testService.test(name);
+    }
+
+    @Reference
+    AnnotionService annotionService;
+
+    @RequestMapping("/anno")
+    public String anno(String param){
+        return annotionService.anno(param);
     }
 }

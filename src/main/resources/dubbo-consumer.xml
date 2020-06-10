@@ -9,6 +9,7 @@
     <dubbo:consumer check="false"/>
     <!--<dubbo:application name="dubbo-xml-consumer"/>-->
     <dubbo:registry address="zookeeper://127.0.0.1:2181" check="false"/>
-    <dubbo:protocol name="dubbo" port="29023"/>
+    <dubbo:protocol name="dubbo" port="29021"/>
     <dubbo:reference interface="com.demo.dubbo.service.TestService"/>
+    <dubbo:annotation package="com.demo.dubbo.controller"/>
 </beans>
