@@ -10,6 +10,11 @@
     <!--<dubbo:application name="dubbo-xml-consumer"/>-->
     <dubbo:registry address="zookeeper://127.0.0.1:2181" check="false"/>
     <dubbo:protocol name="dubbo" port="29021"/>
-    <dubbo:reference interface="com.demo.dubbo.service.TestService"/>
+    <dubbo:reference interface="com.demo.dubbo.service.TestService"  id="genericTest" generic="true"/>
     <dubbo:annotation package="com.demo.dubbo.controller"/>
+
+    <dubbo:reference interface="com.demo.dubbo.service.stub.StubService" stub="com.demo.dubbo.stub.LocalStubServiceProxy"/>
+
+    <dubbo:reference interface="com.demo.dubbo.service.mock.MockService" mock="com.demo.dubbo.mock.LocalMockProxyService"/>
+
 </beans>
